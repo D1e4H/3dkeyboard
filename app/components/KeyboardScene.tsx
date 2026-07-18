@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stage } from "@react-three/drei";
 import Model from "./model";
 
-export const KeyboardScene = () => {
+export const KeyBoardScene = () => {
   return (
     <div className="w-full h-[600px]">
       <Canvas shadows dpr={[1, 2]} camera={{ fov: 45 }}>

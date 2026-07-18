@@ -1,8 +1,9 @@
 "use client";
+
 import React from "react";
 import { Canvas, extend} from "@react-three/fiber";
 import { OrbitControls, Stage } from "@react-three/drei";
-import {KeyboardScene} from "./keyBoardScene";
+import {KeyBoardScene} from "./keyBoardScene";
 import * as THREE from "three";
 
 
@@ -11,7 +12,7 @@ export default function HeroSection() {
     <section className="relative h-screen w-full text-black bg-stone-300 overflow-hidden">
       {/* Contenedor del Canvas 3D */}
       <div className="absolute inset-0 z-0">
-            <KeyboardScene />
+            <KeyBoardScene />
       </div>
 
       {/* Contenido (Overlay) */}
