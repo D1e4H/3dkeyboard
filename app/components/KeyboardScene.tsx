@@ -1,35 +1,22 @@
 "use client";
-
+import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { ContactShadows } from "@react-three/drei";
-import SceneLights from "./SceneLights";
-import Keyboard3D from "./Keyboard3D";
-import Table from "./Table";
-import CameraRig from "./CameraRig";
+import { OrbitControls, Stage } from "@react-three/drei";
+import Model from "./model";
 
-type KeyboardSceneProps = {
-  entered: boolean;
-};
-
-export default function KeyboardScene({ entered }: KeyboardSceneProps) {
+export default function KeyboardScene() {
   return (
-    <section className="absolute inset-0 bg-[#050505]">
-      <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 7.5, 17], fov: 42 }}>
-        <color attach="background" args={["#050505"]} />
-        <fog attach="fog" args={["#050505", 14, 34]} />
-        <SceneLights />
-        <Table />
-        <Keyboard3D />
-        <ContactShadows
-          position={[0, 0.01, 0]}
-          opacity={0.5}
-          scale={24}
-          blur={2.6}
-          far={5}
-          color="#000000"
-        />
-        <CameraRig entered={entered} />
+    <div className="w-full h-[600px]">
+      <Canvas shadows dpr={[1, 2]} camera={{ fov: 45 }}>
+        {/* Suspense muestra algo mientras el modelo carga */}
+        <Suspense fallback={null}>
+          <Stage environment="city" intensity={0.6}>
+            <Model />
+          </Stage>
+        </Suspense>
+        
+        <OrbitControls makeDefault autoRotate autoRotateSpeed={2} />
       </Canvas>
-    </section>
+    </div>
   );
 }
