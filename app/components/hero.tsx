@@ -2,7 +2,7 @@
 import React from "react";
 import { Canvas, extend} from "@react-three/fiber";
 import { OrbitControls, Stage } from "@react-three/drei";
-import KeyboardScene from "./keyBoardScene";
+import {KeyboardScene} from "./keyBoardScene";
 import * as THREE from "three";
 
 
