@@ -7,23 +7,25 @@ import { AnimatedButton } from "./animated/animatedbutton";
 import Menu from "./menu";
 
 export default function HeroSection() {
-  const overlayRef = useRef(null);
-  const buttonRef = useRef(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const [isDesingmode, setIsDesingmode] = React.useState(false);
   const handleStartExperience = () => {
-    // Animación e salida: desvanece y mueve el texto hacia arriba
+    if (overlayRef.current) {
     gsap.to(overlayRef.current, {
       opacity: 0,
       y: -50,
       duration: 0.8,
       ease: "power3.inOut",
       onComplete: () => {
-        // Opcional: ocultar completamente del flujo si es necesario
-        overlayRef.current.style.display = "none";
+
+       if (overlayRef.current === null) {return ;} 
+       overlayRef.current.style.display = "none";
       },
     });
     setIsDesingmode(true);
   };
+}
   const handleBackToHome = () => {
     gsap.to(buttonRef.current, {
       opacity: 0,
@@ -40,6 +42,7 @@ export default function HeroSection() {
       duration: 0.8,
       ease: "power3.inOut",
       onComplete: () => {
+        if (overlayRef.current === null) {return ;}
         overlayRef.current.style.display = "flex";
       },
     });
