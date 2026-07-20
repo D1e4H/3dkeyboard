@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import gsap from "gsap";
-import { KeyBoardScene } from "./keyBoardScene";
+import { KeyBoardScene } from "./model";
 import { AnimatedButton } from "./animated/animatedbutton";
 import Menu from "./menu";
 

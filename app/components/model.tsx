@@ -1,14 +1,26 @@
 "use client";
-import React from "react";
-import { useGLTF } from "@react-three/drei";
+import React, {Suspense} from "react";
+import { useGLTF, OrbitControls, Stage } from "@react-three/drei";
 import * as THREE from "three";
+import { Canvas } from "@react-three/fiber";
 
 
 export default function Model() {
-  // Aquí importamos el modelo directamente. 
-  // No olvides poner el archivo en la carpeta /public
   const { scene } = useGLTF('/keyboard-op.glb');
   
-  // primitive es la forma de renderizar un modelo cargado de forma directa
   return <primitive object={scene} />;
+}
+
+export const KeyBoardScene = () => {
+  return (
+      <Canvas  shadows dpr={[1, 2]} camera={{ position: [0, 0, 20], fov: 50 }}>
+          <Suspense fallback={null}>
+          <Stage environment="city" intensity={0.6}>
+            <Model />
+          </Stage>
+        </Suspense>
+        
+        <OrbitControls makeDefault />
+      </Canvas>
+  );
 }
