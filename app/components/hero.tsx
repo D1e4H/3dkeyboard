@@ -4,7 +4,6 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { KeyBoardScene } from "./model";
 import { AnimatedButton } from "./animated/animatedbutton";
-import Menu from "./menu";
 
 export default function HeroSection() {
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -49,23 +48,11 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen w-full text-black bg-stone-300 overflow-hidden">
+    <section className="relative h-screen w-full text-black bg-magenta-500 overflow-hidden">
       {/* Contenedor del Canvas 3D */}
       <div className="absolute inset-0">
         <KeyBoardScene />
       </div>
-      {isDesingmode ? (
-        <div>
-          <button
-            ref={buttonRef}
-            onClick={handleBackToHome}
-            className="bg-none border-2 border-stone-900 fixed z-50 text-5xs font-bold md:text-2xl p-3 mt-5 ml-7 tracking-wider"
-          >
-            back to home
-          </button>
-          <Menu></Menu>
-        </div>
-      ) : null}
 
       <div
         ref={overlayRef}
