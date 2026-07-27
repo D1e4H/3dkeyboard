@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+3D Mechanical Keyboard Customizer
 
-## Getting Started
+Una aplicación web interactiva en 3D para personalizar y pintar componentes de un teclado mecánico en tiempo real, construida con React, React Three Fiber (R3F), Drei, Tailwind CSS y TypeScript.
+Características Principales
 
-First, run the development server:
+    Visualizador 3D Interactivo: Renderizado optimizado de modelos 3D (.glb) utilizando Three.js.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    Pintura por Click: Selección de colores mediante un panel flotante y aplicación directa sobre las mallas o sub-materiales específicos del teclado.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    Historial de Cambios (Undo / Redo): Sistema completo de control de versiones por acciones de pintado mediante atajos de teclado estándar:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+        Deshacer: Ctrl + Z (o Cmd + Z en Mac)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+        Rehacer: Ctrl + Y o Ctrl + Shift + Z
 
-## Learn More
+    Optimización de Rendimiento:
 
-To learn more about Next.js, take a look at the following resources:
+        Uso de frustumCulled y clonación eficiente de materiales.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+        Precarga de modelos (useGLTF.preload) para evitar bloqueos repentinos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+        Configuración de renderizado optimizada (desactivación de sombras innecesarias y control de DPR).
 
-## Deploy on Vercel
+    Feedback Visual: Cursor interactivo (pointer) al pasar el ratón sobre los elementos modificables del modelo 3D.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Tecnologías Utilizadas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    Framework: React (Next.js / Client Components)
+
+    Tipado: TypeScript
+
+    3D / Gráficos: Three.js, React Three Fiber, @react-three/drei
+
+    Estilos: Tailwind CSS
+
+Estructura del Componente
+
+El proyecto se divide principalmente en dos componentes lógicos:
+
+    Model: Gestiona la carga del archivo GLTF, la manipulación de materiales, la lógica de eventos de clic para pintar y los listeners del historial de comandos (Undo/Redo).
+
+    KeyBoardScene: Configura el proveedor de contexto de color (ColorContext), el componente Canvas de Three.js, la iluminación de entorno (Stage) y los controles orbitales de la cámara (OrbitControls).
