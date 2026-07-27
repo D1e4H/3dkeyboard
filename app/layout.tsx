@@ -13,9 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nova 65 — Premium Mechanical Keyboard",
-  description:
-    "Engineered for those who demand precision, sound, and aesthetics in every keystroke.",
+  title: "Keyboard editor",
+  description: "An editor where you can customize a keyboard.",
 };
 
 export default function RootLayout({
