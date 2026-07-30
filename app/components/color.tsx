@@ -18,8 +18,8 @@ export default function Color({ selectedColor, setSelectedColor }: ColorProps) {
   ];
 
   return (
-    <div className="absolute top-5 left-1/2 -translate-x-1/2 z-10 bg-[#141419]/85 px-4 py-3 sm:px-5 sm:py-3.5 rounded-xl backdrop-blur-md flex items-center gap-2.5 sm:gap-3 border border-white/10 max-w-[92vw] overflow-x-auto scrollbar-none shadow-2xl">
-      <span className="text-white text-xs sm:text-sm font-sans whitespace-nowrap mr-1">
+    <div className="absolute top-5 left-1/2 -translate-x-1/2 z-10 bg-[#141419]/85 px-4 py-3 sm:px-5 sm:py-3.5 rounded-xl backdrop-blur-md flex-wrap md:flex-nowrap items-center gap-2.5 sm:gap-3 border border-white/10 md:max-w-[93vw] overflow-x-auto scrollbar-none shadow-2xl">
+      <span className="text-white text-xs sm:text-sm font-sans  mr-1">
         Current color:
       </span>
 
