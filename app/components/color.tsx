@@ -44,7 +44,7 @@ export default function Color({ selectedColor, setSelectedColor }: ColorProps) {
             value={selectedColor}
             onChange={(e) => setSelectedColor(e.target.value)}
             className="absolute inset-1 w-6 h-6 sm:w-[30px] sm:h-[30px] border-none rounded-full cursor-pointer bg-transparent p-0 outline-none appearance-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none [&::-webkit-color-swatch]:rounded-full"
-            title="Elige un color personalizado"
+            title="Custom Color"
           />
         </div>
       </div>
